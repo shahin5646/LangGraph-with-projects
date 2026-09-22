@@ -1,0 +1,10 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "1_graph": "./01_Basic_Graphs/01_graph_state_str.py:graph",
+    "2_graph": "./01_Basic_Graphs/02_graph_state_dict.py:graph",
+    "3_graph": "./01_Basic_Graphs/03_graph_conditional_edge.py:graph",
+    "4_graph": "./01_Basic_Graphs/04_graph_introduction_model.py:graph"
+  },
+  "env": ".env"
+}

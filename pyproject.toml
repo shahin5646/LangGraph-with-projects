@@ -1,0 +1,24 @@
+[project]
+name = "langgraph-with-projects"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "shahin5646", email = "shahinsmnok99@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "colorama>=0.4.6",
+    "langchain>=1.4.2",
+    "langchain-openai>=1.6.2",
+    "langgraph>=1.2.11",
+    "langgraph-cli[inmem]>=0.4.31",
+    "python-dotenv>=1.2.3",
+]
+
+[project.scripts]
+langgraph-with-projects = "langgraph_with_projects:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
