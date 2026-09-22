@@ -26,14 +26,21 @@ model_llm = ChatOpenAI(
 
 # nodes
 def node1(state: State) -> State:
-    """take a state and ask our model to pick a number between 1 or 2"""
+    """Ask the model to pick a number, then store it (and a trace) in state."""
     model_response = model_llm.invoke("choose between 1 or 3 or 2. reply only with a number")
-
-    if isinstance(int(model_response.content), int):
-        return {"graph_int":int(model_response.content),
-                "graph_str": state["graph_str"] + "passed by node 1"}
-    return {"graph_int":0,
-                "graph_str": state["graph_str"] + "passed by node 1"}
+ 
+    try:
+        picked_number = int(model_response.content.strip())
+    except (ValueError, TypeError):
+        # Model replied with something that isn't a clean integer
+        # (e.g. "I choose 2" instead of "2") — fall back safely instead of crashing.
+        picked_number = 0
+ 
+    return {
+        "graph_int": picked_number,
+        "graph_str": state["graph_str"] + "passed by node 1"
+    }
+ 
 
 def node2(state: State) -> State:
     """take a state and ask our model to pick a number between 1 or 2"""
