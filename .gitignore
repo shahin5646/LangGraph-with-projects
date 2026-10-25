@@ -1,2 +1,5 @@
 practice
 .env
+PROJECTS
+__pycache__
+.langgraph_api
